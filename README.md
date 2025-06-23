@@ -28,8 +28,10 @@ See the [Dart packages](https://pub.dev/packages/persian_number_utility).
 - [تبدیل به تومان و ریال - Convert to Tomans and Rials](#تبدیل-به-تومان-و-ریال)
 - [اعتبار سنجی کارت بانکی - Bank card validation](#اعتبار-سنجی-کارت-بانکی)
 - [تشخیص نام بانک از شماره کارت بانکی - Recognize the name of the bank from the bank card number](#تشخیص-نام-بانک-از-شماره-کارت-بانکی)
+- [اعتبار سنجی شماره شبا بانکی - Bank account IBAN validation](#اعتبار-سنجی-شماره-شبا-بانکی)
 - [تبدیل حروف عربی به حروف استاندارد الفبای فارسی  - Convert Arabic letters to standard letters of the Persian](#تبدیل-حروف-غیر-استاندارد-به-حروف-استاندارد-الفبای-فارسی)
 - [اعتبارسنجی کد پستی ایرانیان - Validation of Iranian Postal Code](#اعتبارسنجی-کد-پستی-ایرانیان)
+- [تشخیص وجود عدد در رشته - String is contains digits](#تشخیص-وجود-عدد-در-رشته)
 
 
 ## طریقه استفاده - Usage
@@ -181,6 +183,11 @@ Text('58921011...'.getBankNameFromCardNumber()), // بانک سپه
 Text('60379911...'.getBankNameFromCardNumber()), // بانک ملی
 Text('00000000...'.getBankNameFromCardNumber()), // -
 ```
+#### اعتبار سنجی شماره شبا بانکی
+
+```dart
+Text('IR111111111111111111111111'.isValidBankShebaNumber().toString()), // false
+```
 
 #### تبدیل حروف غیر استاندارد به حروف استاندارد الفبای فارسی
 
@@ -196,6 +203,13 @@ Text('ئ ي ك ﮑ ﮐ ﮏ'.fixPersianChars()), //ی ی ک ک ک ک
 Text('5955846418'.isValidIranianPostalCode().toString()), // true
 ```
 
+
+#### تشخیص وجود عدد در رشته
+
+```dart
+Text('abcdefghj'.isContainDigits().toString()), // false
+Text('abcdefghj3'.isContainDigits().toString()), // true
+```
 
 
 ## حمایت از ما

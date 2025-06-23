@@ -48,6 +48,11 @@ extension StringExtensions on String {
     return NumberUtility.isNumeric(this);
   }
 
+  ///string is contains digits
+  bool isContainDigits() {
+    return NumberUtility.isContainDigits(this);
+  }
+
   @Deprecated("استفاده شود toPersianDate به خاطر اشتباه نوشتاری در متد از")
 
   /// استفاده شود toPersianDate به خاطر اشتباه نوشتاری در متد از
@@ -94,6 +99,11 @@ extension StringExtensions on String {
   //صحیح بودن شماره کارت بانکی
   bool isValidBankCardNumber() {
     return BankValidator.verifyCardNumber(this);
+  }
+
+  //صحیح بودن شماره شبا بانکی
+  bool isValidBankShebaNumber() {
+    return BankValidator.verifyShebaNumber(this);
   }
 
   //صحیح بودن شماره موبایل ایرانیان
