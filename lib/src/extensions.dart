@@ -1,11 +1,10 @@
-import 'validators/regex_validators.dart';
-
 import 'date_class.dart';
-import 'enums.dart';
 import 'difference_date.dart';
+import 'enums.dart';
 import 'methods.dart';
 import 'validators/bank_validator.dart';
 import 'validators/national_code.dart';
+import 'validators/regex_validators.dart';
 
 extension StringExtensions on String {
   ///convert 123456789 to ۱۲۳۴۵۶۷۸۹
@@ -94,6 +93,11 @@ extension StringExtensions on String {
   //صحیح بودن کد ملی ایرانیان
   bool isValidIranianNationalCode() {
     return NationalCode.isValidNationalCode(this);
+  }
+
+  //صحیح بودن کد ملی حقیقی
+  bool isValidateNationalCodeLegal() {
+    return NationalCode.isValidateNationalCodeLegal(this);
   }
 
   //صحیح بودن شماره کارت بانکی

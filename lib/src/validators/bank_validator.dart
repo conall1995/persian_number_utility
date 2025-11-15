@@ -13,7 +13,7 @@ class BankValidator {
       return false;
     }
 
-    dynamic even, tempDigit, sumOfItems = 0;
+    num even, tempDigit, sumOfItems = 0;
     for (int i = 0; i < 16; i++) {
       even = i % 2 == 0 ? 2 : 1;
       tempDigit = int.parse(inputString.substring(i, i + 1)) * even;
