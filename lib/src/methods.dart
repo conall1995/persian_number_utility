@@ -1,8 +1,8 @@
 // Copyright (c) 2020, Mehdi Nemati.
 library persian_number_utility;
 
-import 'word_class.dart';
 import 'enums.dart';
+import 'word_class.dart';
 
 class NumberUtility {
   ///convert number to string , like: 1000 to 'one thousand' or 'هزار'
@@ -52,23 +52,39 @@ class NumberUtility {
 
   ///convert 123456789 to 123,456,789
   static String seRagham(String number, {String separator = ","}) {
+    if (number.isEmpty) return number;
+
+    bool isNegative = number.trim().startsWith('-');
+
+    if (isNegative) {
+      number = number.trim().substring(1);
+    }
+
     String str = "";
+
     var numberSplit = number.split('.');
     number = numberSplit[0].replaceAll(separator, '');
+
     for (var i = number.length; i > 0;) {
       if (i > 3) {
         str = separator + number.substring(i - 3, i) + str;
       } else {
         str = number.substring(0, i) + str;
       }
-      i = i - 3;
+      i -= 3;
     }
+
     if (numberSplit.length > 1) {
       str += '.' + numberSplit[1];
     }
+
+    // برگرداندن علامت منفی
+    if (isNegative) {
+      str = '-$str';
+    }
+
     return str;
   }
-
   ///convert 123456789 to ۱۲۳۴۵۶۷۸۹  Or  ۱۲۳۴۵۶۷۸۹ to 123456789
   static String changeDigit(String number, NumStrLanguage toDigit) {
     var persianNumbers = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];

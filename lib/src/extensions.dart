@@ -123,15 +123,25 @@ extension StringExtensions on String {
   //تبدیل به تومان - Convert price to Toman
   String beToman() {
     var strNumber = NumberUtility.extractNumber(this, NumStrLanguage.English);
-    var convertedNumber = int.parse(strNumber);
-    return (convertedNumber / 10).toString().replaceAll('.0', '');
+
+    if (strNumber.isEmpty || strNumber == '-') return '0';
+
+    final value = num.tryParse(strNumber);
+    if (value == null) return '0';
+
+    return (value / 10).toString().replaceAll('.0', '');
   }
 
    // تبدیل به تومان به صورت رند شده - Convert price to Toman and rounded
   String beTomanRounded() {
     var strNumber = NumberUtility.extractNumber(this, NumStrLanguage.English);
-    var convertedNumber = int.parse(strNumber);
-    return (convertedNumber / 10).round().toString();
+
+    if (strNumber.isEmpty || strNumber == '-') return '0';
+
+    final value = num.tryParse(strNumber);
+    if (value == null) return '0';
+
+    return (value / 10).round().toString();
   }
 
   //تبدیل به ریال - Convert price to Rial
