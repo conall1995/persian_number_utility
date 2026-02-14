@@ -111,7 +111,8 @@ class NumberUtility {
   static String extractNumber(String inputString, NumStrLanguage toDigit) {
     String number = "";
     inputString = changeDigit(inputString, NumStrLanguage.English);
-    number = inputString.replaceAll(RegExp(r'[^0-9]'), ''); // '23'
+    number = inputString.replaceAll(RegExp(r'(?!^)-|[^0-9-]'), '');
+    ; // '23'
     return changeDigit(number, toDigit);
   }
 
