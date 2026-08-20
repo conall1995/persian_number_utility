@@ -18,7 +18,7 @@ extension StringExtensions on String {
   }
 
   ///extract number from string; abc123456789xyz to ۱۲۳۴۵۶۷۸۹  Or  ابپ۱۲۳۴۵۶۷۸۹ن to 123456789
-  String extractNumber({NumStrLanguage toDigit = NumStrLanguage.Farsi}) {
+  String extractNumber({NumStrLanguage toDigit = NumStrLanguage.English}) {
     return NumberUtility.extractNumber(this, toDigit);
   }
 
